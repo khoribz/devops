@@ -1,0 +1,9 @@
+- name: Build
+  hosts: all
+  roles:
+    - ansible/roles/build
+
+- name: Deploy
+  hosts: my_group
+  roles:
+    - ansible/roles/deploy
