@@ -1,0 +1,20 @@
+---
+- name: Clone and build app
+  hosts: all
+  become: no
+
+  vars:
+    dst_path: ./tmp
+
+  tasks:
+    - name: Clone from git
+      git:
+        repo: https://github.com/khoribz/devops.git
+        dest: '{{ dst_path }}'
+        force: yes
+
+    - name: Run app
+      shell: |
+        pip3 install -r '{{ dst_path }}'/app/requirements.txt
+        python3 '{{ dst_path }}'/app/main.py
+...
