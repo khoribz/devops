@@ -1,0 +1,7 @@
+all:
+  hosts:
+    local:
+      ansible_hosts: "127.0.0.1"
+      ansible_port: "22"
+      ansible_ssh_user: "mfti"
+      ansible_ssh_pass: "sxaehMFRob"
