@@ -1,10 +1,13 @@
+version: "3.9"
+
 services:
-  app:
+  ansible_host:
     build:
       context: .
-      dockerfile: ./Dockerfile
-    ports:
-      - "8000:8000"
+      dockerfile: containers/build/Dockerfile
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - ./ansible:/ansible
+    ports:
+      - "8000:8000"
+      - "22:22"
