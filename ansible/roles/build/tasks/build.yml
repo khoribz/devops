@@ -1,0 +1,17 @@
+- name: Install Docker on remote host
+  become: true
+  apt:
+    name: docker.io
+    state: present
+
+- name: Clone from git
+  git:
+    repo: https://github.com/khoribz/devops.git
+    dest: /repo
+    force: yes
+
+- name: Create venv and install requirements
+  shell: |
+    python3 -m venv /repo/venv
+    source /repo/venv/bin/activate
+    pip3 install -r /repo/app/requirements.txt
